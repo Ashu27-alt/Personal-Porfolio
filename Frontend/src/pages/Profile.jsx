@@ -8,7 +8,7 @@ export default function ProfilePage() {
   const [newSocial, setNewSocial] = useState("")
 
   const fetchProfile = () => {
-    fetch("http://localhost:8001/api/v1/profile")
+    fetch("https://personal-porfolio1.onrender.com/profile")
       .then(res => res.json())
       .then(data => setProfile(data.data))
   }
@@ -18,7 +18,7 @@ export default function ProfilePage() {
   }, [])
 
   const addEducation = async () => {
-    await fetch("http://localhost:8001/api/v1/profile/add-Education", {
+    await fetch("https://personal-porfolio1.onrender.com/profile/add-Education", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newEdu)
@@ -28,7 +28,7 @@ export default function ProfilePage() {
   }
 
   const addExperience = async () => {
-    await fetch("http://localhost:8001/api/v1/profile/add-Experience", {
+    await fetch("https://personal-porfolio1.onrender.com/profile/add-Experience", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newExperience: newExp })
@@ -38,7 +38,7 @@ export default function ProfilePage() {
   }
 
   const addSocial = async () => {
-    await fetch("http://localhost:8001/api/v1/profile/add-Social", {
+    await fetch("https://personal-porfolio1.onrender.com/profile/add-Social", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newsocial: newSocial })

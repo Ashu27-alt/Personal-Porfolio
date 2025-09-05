@@ -75,3 +75,14 @@ GET /api/v1/projects
 POST /api/v1/projects
 
 DELETE /api/v1/projects/:id
+
+3. Frontend Setup
+
+cd Frontend
+npm install
+
+Run frontend:
+
+npm run dev
+
+Frontend runs on: http://localhost:5173

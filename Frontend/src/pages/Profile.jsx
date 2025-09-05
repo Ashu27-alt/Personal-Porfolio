@@ -8,7 +8,7 @@ export default function ProfilePage() {
   const [newSocial, setNewSocial] = useState("")
 
   const fetchProfile = () => {
-    fetch("https://personal-porfolio1.onrender.com/profile")
+    fetch("https://personal-porfolio1.onrender.com/api/v1/profile")
       .then(res => res.json())
       .then(data => setProfile(data.data))
   }
@@ -18,7 +18,7 @@ export default function ProfilePage() {
   }, [])
 
   const addEducation = async () => {
-    await fetch("https://personal-porfolio1.onrender.com/profile/add-Education", {
+    await fetch("https://personal-porfolio1.onrender.com/api/v1/profile/add-Education", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newEdu)
@@ -28,7 +28,7 @@ export default function ProfilePage() {
   }
 
   const addExperience = async () => {
-    await fetch("https://personal-porfolio1.onrender.com/profile/add-Experience", {
+    await fetch("https://personal-porfolio1.onrender.com/api/v1/profile/add-Experience", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newExperience: newExp })
@@ -38,7 +38,7 @@ export default function ProfilePage() {
   }
 
   const addSocial = async () => {
-    await fetch("https://personal-porfolio1.onrender.com/profile/add-Social", {
+    await fetch("https://personal-porfolio1.onrender.com/api/v1/profile/add-Social", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newsocial: newSocial })
@@ -54,7 +54,6 @@ export default function ProfilePage() {
       <h1 className="text-3xl font-bold mt-4">{profile?.name}</h1>
       <p className="text-gray-600">{profile?.email}</p>
 
-      {/* Education */}
       <section className="mt-6">
         <h2 className="text-xl font-semibold mb-2">Education</h2>
         <ul className="list-disc pl-5">
@@ -88,7 +87,7 @@ export default function ProfilePage() {
         <h2 className="text-xl font-semibold mb-2">Social Links</h2>
         <ul className="list-disc pl-5">
           {profile?.socialLinks?.map((link, i) => (
-            <li key={i}><a href={link} target="_blank" className="text-ember-600 hover:underline">{link}</a></li>
+            <li key={i}><a href={link} target="_blank" rel="noreferrer" className="text-ember-600 hover:underline">{link}</a></li>
           ))}
         </ul>
         <div className="mt-3 flex gap-2">

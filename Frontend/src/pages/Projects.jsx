@@ -16,7 +16,7 @@ export default function ProjectsPage() {
   const fetchProjects = async (query = "") => {
     try {
       setLoading(true)
-      let url = "https://personal-porfolio1.onrender.com/projects"
+      let url = "https://personal-porfolio1.onrender.com/api/v1/projects"
       if (query) {
         url += `?tech=${encodeURIComponent(query)}`
       }
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
   const handleAddProject = async (e) => {
     e.preventDefault()
     try {
-      const res = await fetch("https://personal-porfolio1.onrender.com/projects", {
+      const res = await fetch("https://personal-porfolio1.onrender.com/api/v1/projects", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
 
   const handleDeleteProject = async (id) => {
     try {
-      const res = await fetch(`https://personal-porfolio1.onrender.com/projects/${id}`, {
+      const res = await fetch(`https://personal-porfolio1.onrender.com/api/v1/projects/${id}`, {
         method: "DELETE",
       })
 
